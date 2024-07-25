@@ -1,0 +1,12 @@
+﻿@model EmployeeListViewModel
+
+@foreach(var item in Model.Employees)
+{
+    <section style="width:40%;margin:auto;">
+        <h2>Name : @item.Firstname</h2>
+        <h2>Surname : @item.Lastname</h2>
+        <h2>CityId : @item.CityId</h2>
+    </section>
+}
+
+<a href="/employee/add">Add New Employee</a>

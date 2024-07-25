@@ -102,7 +102,7 @@ namespace WebApplication1.Controllers
             //return Json(employee);
         }
 
-
+        [HttpGet]
         public IActionResult GetById(int id)
         {
             List<Employee> employees = new List<Employee>
