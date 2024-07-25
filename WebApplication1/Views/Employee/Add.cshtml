@@ -1,4 +1,5 @@
-﻿@model EmployeeAddViewModel
+﻿
+@model EmployeeAddViewModel
 
 <section>
     <form asp-action="Add" asp-controller="Employee">
@@ -19,8 +20,9 @@
         </section>
         <section>
             <label asp-for="Employee.CityId"></label>
-           
-            <select asp-for="Employee.CityId" asp-items="Model.Cities"></select>
+            <select asp-for="Employee.CityId" asp-items="Model.Cities">
+
+            </select>
 
         </section>
        <section>

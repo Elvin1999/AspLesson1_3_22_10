@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using WebApplication1.Entities;
 using WebApplication1.Models;
 
@@ -49,7 +50,7 @@ namespace WebApplication1.Controllers
             var vm = new EmployeeAddViewModel
             {
                 Employee = new Employee(),
-                Cities=new List<SelectListItem>
+                Cities = new List<SelectListItem>
                 {
                     new SelectListItem{Text="Baku",Value="10"},
                     new SelectListItem{Text="Xirdalan",Value="1"},
@@ -67,7 +68,17 @@ namespace WebApplication1.Controllers
                 Employees.Add(vm.Employee);
                 return RedirectToAction("Index");
             }
-            return View(vm); 
+            return View(vm);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var item = Employees.SingleOrDefault(e => e.Id == id);
+            if (item != null)
+            {
+                Employees.Remove(item);
+            }
+            return RedirectToAction("Index");
         }
 
     }
